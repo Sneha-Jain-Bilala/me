@@ -1,13 +1,14 @@
 import React, { useRef } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
-import { ArrowRight, Github, Linkedin, Download, MapPin } from 'lucide-react';
+import { ArrowRight, Github, Linkedin, MapPin, Smartphone, Globe, Cpu, Layers } from 'lucide-react';
 import { RESUME_DATA } from '../constants';
 
 gsap.registerPlugin(useGSAP);
 
 const Hero: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
+  const experienceCardRef = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
     const tl = gsap.timeline({ defaults: { ease: "elastic.out(1, 0.75)", duration: 1.5 } });
@@ -16,7 +17,7 @@ const Hero: React.FC = () => {
       y: 100,
       opacity: 0,
       stagger: 0.1,
-      scale: 0.8,
+      scale: 0.9,
     })
     .from(".hero-text", {
       y: 50,
@@ -24,6 +25,20 @@ const Hero: React.FC = () => {
       duration: 1,
       ease: "power4.out"
     }, "-=1");
+    
+    // Floating animation for tech icons
+    gsap.to(".tech-float", {
+      y: -12,
+      rotation: 5,
+      duration: 3,
+      stagger: {
+        each: 0.5,
+        from: "random"
+      },
+      yoyo: true,
+      repeat: -1,
+      ease: "sine.inOut"
+    });
 
   }, { scope: containerRef });
 
@@ -78,15 +93,49 @@ const Hero: React.FC = () => {
           {/* Side Cards (Bento Grid) */}
           <div className="lg:col-span-4 flex flex-col gap-6">
             
-            {/* Profile / Stats Card */}
-            <div className="hero-card flex-1 bg-gradient-to-br from-pastel-pink/20 to-pastel-purple/20 backdrop-blur-xl border border-white/40 dark:border-white/5 rounded-[2.5rem] p-8 shadow-glow-pink flex flex-col justify-center items-center text-center relative overflow-hidden group">
-               <div className="absolute inset-0 bg-white/40 dark:bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-               <div className="relative z-10">
-                 <div className="w-24 h-24 rounded-2xl bg-gradient-to-tr from-indigo-500 to-purple-500 mb-6 mx-auto shadow-lg rotate-3 group-hover:rotate-6 transition-transform duration-500 flex items-center justify-center text-4xl">
-                    👨‍💻
+            {/* IMPROVED: Tech Stack / Focus Card */}
+            <div 
+              ref={experienceCardRef} 
+              className="hero-card flex-1 relative bg-white dark:bg-surface-dark border border-slate-100 dark:border-white/5 rounded-[2.5rem] p-8 shadow-card-light dark:shadow-card-dark flex flex-col justify-center items-center text-center overflow-visible group hover:border-primary/30 transition-colors duration-500"
+            >
+               {/* Animated Background Elements */}
+               <div className="absolute -right-12 -top-12 w-48 h-48 bg-pastel-blue/20 rounded-full blur-3xl group-hover:scale-150 transition-transform duration-700 ease-in-out"></div>
+               <div className="absolute -left-12 -bottom-12 w-48 h-48 bg-pastel-pink/20 rounded-full blur-3xl group-hover:scale-150 transition-transform duration-700 ease-in-out delay-100"></div>
+               
+               {/* Decorative Pattern */}
+               <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05] bg-[radial-gradient(#6366f1_1px,transparent_1px)] [background-size:16px_16px] rounded-[2.5rem]"></div>
+
+               <div className="relative z-10 flex flex-col items-center w-full">
+                 {/* Tech Composition */}
+                 <div className="relative w-full h-32 mb-4 flex items-center justify-center">
+                    
+                    {/* Flutter/Mobile */}
+                    <div className="tech-float absolute left-[25%] top-2 p-4 bg-white dark:bg-slate-800 rounded-2xl shadow-xl shadow-indigo-500/10 border border-slate-100 dark:border-white/10 z-20 hover:scale-110 transition-transform">
+                       <Smartphone size={28} className="text-pastel-blue" />
+                    </div>
+
+                    {/* Web/Globe */}
+                    <div className="tech-float absolute right-[25%] top-8 p-4 bg-white dark:bg-slate-800 rounded-2xl shadow-xl shadow-pink-500/10 border border-slate-100 dark:border-white/10 z-20 hover:scale-110 transition-transform">
+                       <Globe size={28} className="text-pastel-pink" />
+                    </div>
+
+                    {/* Backend/Cpu - Blurred background element */}
+                    <div className="tech-float absolute top-[40%] left-[45%] p-3 bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm rounded-xl border border-slate-100 dark:border-white/5 z-10 scale-90">
+                        <Layers size={20} className="text-slate-400" />
+                    </div>
                  </div>
-                 <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">3+ Years</h3>
-                 <p className="text-slate-600 dark:text-slate-300 font-medium">Coding Experience</p>
+
+                 <h3 className="text-2xl font-display font-bold text-slate-900 dark:text-white mb-2">
+                   Mobile & Web
+                 </h3>
+                 <p className="text-sm text-slate-500 dark:text-slate-400 font-medium leading-relaxed max-w-[240px]">
+                   Crafting seamless cross-platform experiences with <span className="text-slate-700 dark:text-white font-bold">Flutter</span> & <span className="text-slate-700 dark:text-white font-bold">Next.js</span>
+                 </p>
+
+                 {/* Bottom Progress Indicator */}
+                 <div className="w-16 h-1.5 rounded-full bg-slate-100 dark:bg-white/10 mt-6 overflow-hidden">
+                    <div className="w-full h-full bg-gradient-to-r from-primary to-pastel-purple origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-700 ease-out"></div>
+                 </div>
                </div>
             </div>
 
@@ -117,10 +166,11 @@ const SocialButton: React.FC<{ href: string; icon: React.ReactNode; label: strin
     href={href}
     target="_blank"
     rel="noopener noreferrer"
-    className="flex flex-col items-center justify-center w-16 h-16 rounded-2xl bg-white dark:bg-white/5 border border-slate-100 dark:border-white/10 text-slate-600 dark:text-slate-400 hover:text-white hover:bg-slate-900 dark:hover:bg-primary transition-all duration-300 hover:scale-110 shadow-sm"
+    className="flex flex-col items-center justify-center w-16 h-16 rounded-2xl bg-white dark:bg-white/5 border border-slate-100 dark:border-white/10 text-slate-600 dark:text-slate-400 hover:text-white hover:bg-slate-900 dark:hover:bg-primary transition-all duration-300 hover:scale-110 shadow-sm group relative overflow-hidden"
     title={label}
   >
-    {icon}
+    <div className="absolute inset-0 bg-gradient-to-tr from-primary to-pastel-purple opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+    <span className="relative z-10">{icon}</span>
   </a>
 );
 
