@@ -9,7 +9,7 @@ export const RESUME_DATA = {
     linkedin: "https://www.linkedin.com/in/sneha-bilala/",
     github: "https://github.com/Sneha-Jain-Bilala"
   },
-  summary: "Innovative technology enthusiast with a strong foundation in Full Stack Web Development and Flutter. Proven track record in building real-time IoT solutions and responsive web platforms. Winner of multiple hackathons and competitions.",
+  summary: "I am Sneha Bilala, Innovative technology enthusiast with a strong foundation in Full Stack Web Development and Flutter. Proven track record in building real-time IoT solutions and responsive web platforms. Winner of multiple hackathons and competitions.",
 };
 
 export const EDUCATION: Education[] = [
