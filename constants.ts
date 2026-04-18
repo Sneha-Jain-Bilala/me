@@ -40,19 +40,17 @@ export const EXPERIENCE: Experience[] = [
   {
     company: "GroOth",
     role: "Flutter Developer",
-    period: "June 2025 – Present",
+    period: "June 2025 – December 2025",
     description: [
-      "Delivered real-time soil health insights to farmers by building a plug-and-play IoT soil sensor mobile app.",
-      "Implemented Bluetooth/device pairing, streaming telemetry, and alerting to enable personalized crop and fertilizer recommendations."
+      "Delivered real-time soil health insights to farmers by building a plug-and-play IoT soil sensor mobile app; implemented Bluetooth/device pairing, streaming telemetry, and alerting to enable personalized crop and fertilizer recommendations."
     ]
   },
   {
     company: "E-Notebook",
     role: "Web Developer",
-    period: "June 2025 – Present",
+    period: "June 2025 – July 2025",
     description: [
-      "Collaborated in a 10-member team to design and ship a browser-based e-notebook for students.",
-      "Digitized experiment logs with templates, version control, and secure access, targeting future rollout to PhD workflows."
+      "Collaborated in a 10-member team to design and ship a browser-based e-notebook for students, resulting in digitized experiment logs with templates, version control, and secure access, targeting future rollout to PhD workflows."
     ]
   }
 ];
@@ -60,16 +58,16 @@ export const EXPERIENCE: Experience[] = [
 export const PROJECTS: Project[] = [
   {
     name: "SereniSpa",
-    tech: ["Next.js", "Rest API", "MongoDB", "Stripe"],
-    description: "Built a responsive salon-booking marketplace enabling users to discover services, compare prices across parlours, and complete checkout with integrated payments and email confirmations.",
-    link: "#",
+    tech: ["Flutter", "Rest API", "Supabase", "Firebase Auth"],
+    description: "Built a responsive salon-booking marketplace enabling users to discover services, compare prices across parlours, and complete checkout with integrated payments and email confirmations, reducing friction in offline booking.",
+    link: "https://github.com/Sneha-Jain-Bilala/SereniSpa",
     image: "https://picsum.photos/600/400?random=1"
   },
   {
-    name: "FastCodr",
-    tech: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
-    description: "Created a platform that helps beginners build typing speed and accuracy by enabling language selection and custom line counts. Features real-time WPM/accuracy metrics, daily challenges, and streaks.",
-    link: "#",
+    name: "1Password",
+    tech: ["Flutter", "Rest API", "Supabase"],
+    description: "Built a secure password manager using Flutter with biometric authentication for protected access. Integrated Supabase for secure storage and real-time data handling. The app supports storing credentials, notes, ATM cards, and addresses with structured data models and secure client-server communication.",
+    link: "https://github.com/Sneha-Jain-Bilala/1Password",
     image: "https://picsum.photos/600/400?random=2"
   }
 ];
@@ -91,20 +89,20 @@ export const SKILLS: SkillCategory[] = [
 
 export const ACHIEVEMENTS: Achievement[] = [
   {
-    title: "Smart India Hackathon",
-    description: "Shortlisted among top teams for proposing an innovative tech-based solution to a real-world problem."
+    title: "Selected for Round 2 in Google Big Code Challenge 2026",
+    description: "Ranked among the top 15,000 participants nationwide to qualify for the second round, which involved solving rigorous algorithmic challenges testing core Data Structure & Algorithms."
   },
   {
-    title: "War of Words Winner",
-    description: "Secured 1st position in a competitive debate competition, showcasing strong critical thinking."
+    title: "100 Days Badge on LeetCode",
+    description: "Earned the 100 Days Badge on LeetCode, showcasing consistent daily practice and strong problem-solving ability."
   },
   {
-    title: "100 Days of LeetCode",
-    description: "Earned the 100 Days Badge showcasing consistent daily practice and strong problem-solving ability."
+    title: "Shortlisted for Smart India Hackathon",
+    description: "Among the top selected teams of our college for proposing an innovative tech-based solution to a real-world problem."
   },
   {
-    title: "Bureau of Indian Standards",
-    description: "Active member contributing to discussions on standardization and quality assurance."
+    title: "1st Position in War of Words",
+    description: "Secured first place in a competitive debate competition, showcasing strong critical thinking."
   }
 ];
 
